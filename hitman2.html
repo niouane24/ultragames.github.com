@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitman 2 - UltraGames</title>
+    <style>
+        :root {
+            --primary: #1a1a1a; /* Noir élégant */
+            --secondary: #333333;
+            --accent: #d32f2f; /* Rouge sang */
+            --light: #f5f5f5;
+            --dark: #121212;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .game-banner {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .game-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 2rem;
+            color: white;
+        }
+        
+        .banner-overlay h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 1px;
+        }
+        
+        .banner-overlay .btn-download {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.9rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+        
+        .banner-overlay .btn-download:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .game-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .game-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .game-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .specs-box, .download-box {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .download-box .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.9rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 1.2rem;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+        
+        .download-box .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        .requirements-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .requirements-table th, .requirements-table td {
+            padding: 0.9rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .requirements-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .feature-list {
+            columns: 2;
+            column-gap: 2rem;
+        }
+        
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            break-inside: avoid;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 900px) {
+            .game-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-list {
+                columns: 1;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .game-banner {
+                height: 350px;
+            }
+            
+            .banner-overlay h1 {
+                font-size: 2.5rem;
+            }
+            
+            .game-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">UltraGames</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+
+        </ul>
+    </nav>
+    
+    <div class="game-banner">
+        <img src="img/hitman-2-banner.jpg" alt="Hitman 2 Bannière">
+        <div class="banner-overlay">
+            <h1>HITMAN 2</h1>
+            <a href="#download" class="btn-download">TÉLÉCHARGER</a>
+        </div>
+    </div>
+    
+    <div class="game-content">
+        <main class="game-info">
+            <h2>Devenez l'Agent 47</h2>
+            <p>Hitman 2 est un jeu d'infiltration développé par IO Interactive. Incarnez l'Agent 47, un tueur à gages légendaire, et voyagez à travers le monde pour éliminer des cibles hautement protégées dans des environnements vastes et interactifs.</p>
+            
+            <h2>Caractéristiques</h2>
+            <ul class="feature-list">
+                <li>6 lieux exotiques à travers le monde</li>
+                <li>Environnements "sandbox" ultra-détaillés</li>
+                <li>Des centaines de méthodes pour éliminer vos cibles</li>
+                <li>Mode multijoueur "Ghost Mode"</li>
+                <li>Nouveaux outils et armes</li>
+                <li>IA améliorée pour des défis plus réalistes</li>
+                <li>Costumes et déguisements variés</li>
+                <li>Système de notoriété dynamique</li>
+            </ul>
+            
+            <h2>Configuration requise</h2>
+            <table class="requirements-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Minimum</th>
+                        <th>Recommandé</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Système d'exploitation</td>
+                        <td>Windows 7 64-bit</td>
+                        <td>Windows 10 64-bit</td>
+                    </tr>
+                    <tr>
+                        <td>Processeur</td>
+                        <td>Intel Core i5-2500K</td>
+                        <td>Intel Core i7-4790</td>
+                    </tr>
+                    <tr>
+                        <td>Mémoire RAM</td>
+                        <td>8GB</td>
+                        <td>16GB</td>
+                    </tr>
+                    <tr>
+                        <td>Carte graphique</td>
+                        <td>NVIDIA GTX 660 / AMD Radeon HD 7870</td>
+                        <td>NVIDIA GTX 1070 / AMD RX Vega 56</td>
+                    </tr>
+                    <tr>
+                        <td>Espace disque</td>
+                        <td>60GB</td>
+                        <td>60GB SSD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        
+        <aside class="game-sidebar">
+            <div class="specs-box">
+                <h3>Informations techniques</h3>
+                <p><strong>Développeur:</strong> IO Interactive</p>
+                <p><strong>Éditeur:</strong> Warner Bros. Interactive</p>
+                <p><strong>Date de sortie:</strong> 13 novembre 2018</p>
+                <p><strong>Genre:</strong> Infiltration, Action</p>
+                <p><strong>Modes:</strong> Solo, Multijoueur</p>
+                <p><strong>Note:</strong> ★★★★☆ (4.5/5)</p>
+                <p><strong>PEGI:</strong> 18+</p>
+            </div>
+            
+            <div class="download-box" id="download">
+                <h3>Télécharger Hitman 2</h3>
+                <p><strong>Version:</strong> Gold Edition (Complete)</p>
+                <p><strong>Taille:</strong> 58.4GB</p>
+                <p><strong>Format:</strong> ISO (Montable)</p>
+                <p><strong>Langues:</strong> Français inclus</p>
+                <a href="#" class="btn">TÉLÉCHARGER (1080×1234 EDITION)</a>
+                <p style="font-size: 0.8rem; margin-top: 0.8rem; color: #666;">Torrent | Seeders: 892</p>
+            </div>
+        </aside>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 UltraGames. Tous droits réservés.</p>
+        <p><small>Hitman 2 est une marque déposée de IO Interactive. Ce site est à but éducatif seulement.</small></p>
+    </footer>
+</body>
+</html>

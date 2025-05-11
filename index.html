@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraGames - Téléchargement de jeux PC</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            background-color: var(--light);
+        }
+        
+        .search-bar input {
+            width: 50%;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+        
+        .search-bar input:focus {
+            border-color: var(--accent);
+        }
+        
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .game-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .game-image-container {
+            width: 100%;
+            height: 350px; /* Ajusté pour le ratio 1080x1234 */
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top; /* Centre l'image verticalement */
+            border-bottom: 3px solid var(--accent);
+            transition: transform 0.5s;
+        }
+        
+        .game-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .game-info {
+            padding: 1.5rem;
+        }
+        
+        .game-info h3 {
+            margin: 0 0 0.8rem 0;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+        
+        .game-info p {
+            margin: 0 0 1.2rem 0;
+            color: #666;
+            font-size: 0.95rem;
+            min-height: 60px;
+        }
+        
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+        }
+        
+        .game-rating {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .game-price {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.7rem 1.2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-details {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            margin-top: 0.8rem;
+        }
+        
+        .btn-details:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                padding: 1.5rem;
+            }
+            
+            nav li {
+                margin: 0 1rem;
+            }
+            
+            .search-bar input {
+                width: 85%;
+            }
+            
+            .game-image-container {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-image-container {
+                height: 280px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">UltraGames</div>
+        <div class="tagline">Votre destination pour les meilleurs jeux PC</div>
+    </header>
+    
+    <nav>
+        <ul>
+
+        </ul>
+    </nav>
+    
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher un jeu...">
+    </div>
+    
+    <div class="game-container">
+        <!-- GTA 5 -->
+        <div class="game-card">
+            <div class="game-image-container">
+                <img src="img/gta-5.png" alt="GTA 5">
+            </div>
+            <div class="game-info">
+                <h3>GTA 5</h3>
+                <p>Jeu d'action-aventure en monde ouvert avec trois personnages principaux et un mode online massif.</p>
+                <div class="game-meta">
+                    <span class="game-rating">★★★★★</span>
+                    <span class="game-price">Gratuit</span>
+                </div>
+                <a href="gta5.html" class="btn">Télécharger</a>
+                <a href="gta5.html" class="btn btn-details">Détails</a>
+            </div>
+        </div>
+        
+        <!-- Hitman 2 -->
+        <div class="game-card">
+            <div class="game-image-container">
+                <img src="img/hitman-2.jpg" alt="Hitman 2">
+            </div>
+            <div class="game-info">
+                <h3>Hitman 2</h3>
+                <p>Jeu d'infiltration où vous incarnez l'Agent 47, un tueur à gages professionnel.</p>
+                <div class="game-meta">
+                    <span class="game-rating">★★★★☆</span>
+                    <span class="game-price">Gratuit</span>
+                </div>
+                <a href="hitman2.html" class="btn">Télécharger</a>
+                <a href="hitman2.html" class="btn btn-details">Détails</a>
+            </div>
+        </div>
+        
+        <!-- Forza Horizon 5 -->
+        <div class="game-card">
+            <div class="game-image-container">
+                <img src="img/forza-horizon-5.png" alt="Forza Horizon 5">
+            </div>
+            <div class="game-info">
+                <h3>Forza Horizon 5</h3>
+                <p>Jeu de course en monde ouvert se déroulant au Mexique avec plus de 500 voitures.</p>
+                <div class="game-meta">
+                    <span class="game-rating">★★★★★</span>
+                    <span class="game-price">Gratuit</span>
+                </div>
+                <a href="forza5.html" class="btn">Télécharger</a>
+                <a href="forza5.html" class="btn btn-details">Détails</a>
+            </div>
+        </div>
+        
+        <!-- Assetto Corsa -->
+        <div class="game-card">
+            <div class="game-image-container">
+                <img src="img/assetto-corsa.png" alt="Assetto Corsa">
+            </div>
+            <div class="game-info">
+                <h3>Assetto Corsa</h3>
+                <p>Simulateur de conduite ultra-réaliste avec une physique de voiture avancée.</p>
+                <div class="game-meta">
+                    <span class="game-rating">★★★★☆</span>
+                    <span class="game-price">Gratuit</span>
+                </div>
+                <a href="assetto.html" class="btn">Télécharger</a>
+                <a href="assetto.html" class="btn btn-details">Détails</a>
+            </div>
+        </div>
+        
+        <!-- Spider-Man Remastered -->
+        <div class="game-card">
+            <div class="game-image-container">
+                <img src="img/Spider-Man-Remastered.jpg" alt="Spider-Man Remastered">
+            </div>
+            <div class="game-info">
+                <h3>Spider-Man Remastered</h3>
+                <p>Jeu d'action-aventure où vous incarnez Spider-Man dans une New York ouverte.</p>
+                <div class="game-meta">
+                    <span class="game-rating">★★★★★</span>
+                    <span class="game-price">Gratuit</span>
+                </div>
+                <a href="spiderman.html" class="btn">Télécharger</a>
+                <a href="spiderman.html" class="btn btn-details">Détails</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#">À propos</a>
+            <a href="#">Conditions d'utilisation</a>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="copyright">
+            © 2023 UltraGames. Tous droits réservés. Toutes les marques déposées sont la propriété de leurs détenteurs respectifs.
+        </div>
+    </footer>
+</body>
+</html>

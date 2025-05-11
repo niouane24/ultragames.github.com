@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA 5 - UltraGames</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #e74c3c; /* Rouge Rockstar */
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .game-banner {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .game-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            color: white;
+        }
+        
+        .banner-overlay h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .banner-overlay .btn-download {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .banner-overlay .btn-download:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        .game-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .game-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .game-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .specs-box, .download-box {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .download-box .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .download-box .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .requirements-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .requirements-table th, .requirements-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .requirements-table th {
+            background-color: #f8f9fa;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .game-content {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            
+            .game-banner {
+                height: 300px;
+            }
+            
+            .banner-overlay h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">UltraGames</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+
+        </ul>
+    </nav>
+    
+    <div class="game-banner">
+        <img src="img/gta-5-banner.jpg" alt="GTA 5 Bannière">
+        <div class="banner-overlay">
+            <h1>Grand Theft Auto V</h1>
+            <a href="#download" class="btn-download">TÉLÉCHARGER MAINTENANT</a>
+        </div>
+    </div>
+    
+    <div class="game-content">
+        <main class="game-info">
+            <h2>Description</h2>
+            <p>Grand Theft Auto V est un jeu vidéo d'action-aventure développé par Rockstar North et édité par Rockstar Games. Situé dans la ville fictive de Los Santos et la campagne environnante qui s'inspire du sud de la Californie, le jeu suit les histoires entrelacées de trois personnages principaux : Michael De Santa, Franklin Clinton et Trevor Philips.</p>
+            
+            <h2>Caractéristiques principales</h2>
+            <ul>
+                <li>Monde ouvert immense et ultra-détaillé</li>
+                <li>Histoire captivante avec trois protagonistes jouables</li>
+                <li>Mode multijoueur GTA Online avec des mises à jour régulières</li>
+                <li>Graphismes et animations de pointe</li>
+                <li>Plus de 500 véhicures différents</li>
+                <li>Système de combat et de tir amélioré</li>
+                <li>Activités secondaires nombreuses et variées</li>
+            </ul>
+            
+            <h2>Configuration requise</h2>
+            <table class="requirements-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Minimum</th>
+                        <th>Recommandé</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Système d'exploitation</td>
+                        <td>Windows 8.1 64 Bit</td>
+                        <td>Windows 10 64 Bit</td>
+                    </tr>
+                    <tr>
+                        <td>Processeur</td>
+                        <td>Intel Core 2 Quad CPU Q6600</td>
+                        <td>Intel Core i5 3470</td>
+                    </tr>
+                    <tr>
+                        <td>Mémoire RAM</td>
+                        <td>4GB</td>
+                        <td>8GB</td>
+                    </tr>
+                    <tr>
+                        <td>Carte graphique</td>
+                        <td>NVIDIA 9800 GT 1GB</td>
+                        <td>NVIDIA GTX 660 2GB</td>
+                    </tr>
+                    <tr>
+                        <td>Espace disque</td>
+                        <td>72GB</td>
+                        <td>72GB SSD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        
+        <aside class="game-sidebar">
+            <div class="specs-box">
+                <h3>Informations</h3>
+                <p><strong>Développeur:</strong> Rockstar North</p>
+                <p><strong>Éditeur:</strong> Rockstar Games</p>
+                <p><strong>Date de sortie:</strong> 14 avril 2015 (PC)</p>
+                <p><strong>Genre:</strong> Action-Aventure, Monde ouvert</p>
+                <p><strong>Mode:</strong> Solo & Multijoueur</p>
+                <p><strong>Note:</strong> ★★★★★ (4.8/5)</p>
+            </div>
+            
+            <div class="download-box" id="download">
+                <h3>Téléchargement</h3>
+                <p><strong>Taille:</strong> 72GB</p>
+                <p><strong>Version:</strong> 1.0.2699.0</p>
+                
+          
+                <p style="font-size: 0.8rem; margin-top: 0.5rem;">Torrent | Seeders: 1,245</p>
+            </div>
+        </aside>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 UltraGames. Tous droits réservés.</p>
+        <p><small>Ce site est à but éducatif seulement. GTA V est une marque déposée de Take-Two Interactive.</small></p>
+    </footer>
+</body>
+</html>
